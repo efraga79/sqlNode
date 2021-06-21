@@ -9,6 +9,16 @@ module.exports = {
 			autoIncrement: true,
 			allowNull: false
 		},
+		user_id: {
+			type: Sequelize.BIGINT,
+			allowNull: false,
+			references: { 
+				model: 'users', 
+				key: 'id' 
+			},
+			onDelete: 'CASCADE',
+			onUpdate: 'CASCADE'
+		},
 		zipcode: {
 			type: Sequelize.STRING,
 			allowNull: false
@@ -30,17 +40,16 @@ module.exports = {
 			allowNull: false
 		},
 		city: {
-			type: Sequelize.INTEGER,
+			type: Sequelize.STRING,
 			allowNull: false
 		},
 		state: {
-			type: Sequelize.INTEGER,
+			type: Sequelize.STRING,
 			allowNull: false
 		},
 		country: {
-			type: Sequelize.INTEGER,
-			allowNull: false,
-			defaultValue: ''
+			type: Sequelize.STRING,
+			allowNull: false
 		},
 		created_at: {
 			type: Sequelize.DATE,
