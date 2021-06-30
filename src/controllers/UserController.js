@@ -6,6 +6,12 @@ module.exports = {
 
 		return res.json(users)
 	},
+	async show(req, res) {
+		const { id } = req.params
+		const users = await User.findByPk(id)
+
+		return res.json(users)
+	},
 	async store(req, res) {
 		const { name, email } = req.body
 
